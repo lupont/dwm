@@ -96,6 +96,7 @@ static const char *scrotcmd[]   = { "dmenu_scrot"    , NULL     };
 static const char *assistcmd[]  = { "dmenu_tuxi"     , NULL     };
 
 #include "movestack.c"
+#include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
     { MODKEY,                       XK_space          , spawn,          { .v = dmenucmd    } },
@@ -146,12 +147,12 @@ static Key keys[] = {
     { MODKEY          ,             XK_x              , spawn,          { .v = assistcmd   } },
     { MODKEY          ,             XK_Escape         , spawn,          { .v = lockcmd     } },
 
-    // { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer -q sset Master 2%-; pkill -RTMIN+10 dwmblocks")   },
-	// { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer -q sset Master 2%+; pkill -RTMIN+10 dwmblocks")   },
-	// { 0, XF86XK_AudioMute       , spawn, SHCMD("amixer set Master toggle; pkill -RTMIN+10 dwmblocks") },
+    { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer -q sset Master 2%-; sigdwmblocks 9")   },
+	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer -q sset Master 2%+; sigdwmblocks 9")   },
+	{ 0, XF86XK_AudioMute       , spawn, SHCMD("amixer set Master toggle; sigdwmblocks 9") },
 
-    // { 0, XF86XK_MonBrightnessUp  , spawn, SHCMD("brightnessctl s +100") },
-    // { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s 100-") },
+    { 0, XF86XK_MonBrightnessUp  , spawn, SHCMD("brightnessctl s +100") },
+    { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s 100-") },
 
     { MODKEY,                       XK_parenright     , view,           { .ui = ~0         } },
     { MODKEY|ShiftMask,             XK_parenright     , tag,            { .ui = ~0         } },
