@@ -93,6 +93,8 @@ static const char *powmencmd[]  = { "dmenu_powermenu", NULL     };
 static const char *pscmd[]      = { "dmenu_ps"       , NULL     };
 static const char *scrotcmd[]   = { "dmenu_scrot"    , NULL     };
 static const char *assistcmd[]  = { "dmenu_tuxi"     , NULL     };
+
+#include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
     { MODKEY,                       XK_space          , spawn,          { .v = dmenucmd    } },
@@ -113,8 +115,8 @@ static Key keys[] = {
     
     { MODKEY,                       XK_j              , focusstack,     { .i = +1          } },
     { MODKEY,                       XK_k              , focusstack,     { .i = -1          } },
-    // { MODKEY|ShiftMask,             XK_j              , movestack,      { .i = +1          } },
-    // { MODKEY|ShiftMask,             XK_k              , movestack,      { .i = -1          } },
+    { MODKEY|ShiftMask,             XK_j              , movestack,      { .i = +1          } },
+    { MODKEY|ShiftMask,             XK_k              , movestack,      { .i = -1          } },
 
     { MODKEY,                       XK_comma          , focusmon,       { .i = -1          } },
     { MODKEY,                       XK_period         , focusmon,       { .i = +1          } },
