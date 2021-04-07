@@ -8,11 +8,13 @@ static const int topbar             = 0;        /* 0 means bottom bar */
 static const char* fonts[] = { "Cascadia Code:size=12", "FontAwesome:size=12", "Noto Color Emoji:size=12" };
 static const char dmenufont[] = "Cascadia Code:size=12";
 
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan  []    = "#005577";
+static const char col_black []    = "#000000";
+static const char col_gray1 []    = "#111111";
+static const char col_gray2 []    = "#444444";
+static const char col_gray3 []    = "#bbbbbb";
+static const char col_orange[]    = "#e67505";
+static const char col_yellow[]    = "#ffdd00";
 
 /* \x0b to \x1f in scripts to use colors */
 static const char col1[]            = "#e67505";
@@ -23,18 +25,28 @@ static const char col5[]            = "#005577";
 static const char col6[]            = "#0088ff";
 
 enum { SchemeNorm, SchemeCol1, SchemeCol2, SchemeCol3, SchemeCol4,
-       SchemeCol5, SchemeCol6, SchemeSel }; /* color schemes */
+       SchemeCol5, SchemeCol6, SchemeSel, SchemeStatus, SchemeTagsSel, SchemeTagsNorm, SchemeInfoSel, SchemeInfoNorm }; /* color schemes */
 
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm]  = { col_gray3, col_gray1, col_gray2 }, // \x0b
-	[SchemeCol1]  = { col1,      col_gray1, col_gray2 }, // \x0c
-	[SchemeCol2]  = { col2,      col_gray1, col_gray2 }, // \x0d
-	[SchemeCol3]  = { col3,      col_gray1, col_gray2 }, // \x0e
-	[SchemeCol4]  = { col4,      col_gray1, col_gray2 }, // \x0f
-	[SchemeCol5]  = { col5,      col_gray1, col_gray2 }, // \x10
-	[SchemeCol6]  = { col6,      col_gray1, col_gray2 }, // \x11
-	[SchemeSel]   = { col_gray4, col_cyan,  col_cyan  },
+	/*                   fg         bg         border   */
+	[SchemeNorm]     = { col_gray3, col_gray1, col_gray2 }, // \x0b
+	[SchemeCol1]     = { col1     , col_gray1, col_gray2 }, // \x0c
+	[SchemeCol2]     = { col2     , col_gray1, col_gray2 }, // \x0d
+	[SchemeCol3]     = { col3     , col_gray1, col_gray2 }, // \x0e
+	[SchemeCol4]     = { col4     , col_gray1, col_gray2 }, // \x0f
+	[SchemeCol5]     = { col5     , col_gray1, col_gray2 }, // \x10
+	[SchemeCol6]     = { col6     , col_gray1, col_gray2 }, // \x11
+    [SchemeSel]      = { col_gray1     , col_yellow    , col_gray2 },
+	// [SchemeStatus]   = { col_gray3, col_gray1,  col_black  }, // Statusbar right {text,background,not used but cannot be empty}
+	// [SchemeTagsSel]  = { col_gray4, col_cyan , col_black  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    // [SchemeTagsNorm] = { col_gray3, col_gray1,  col_black  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    // [SchemeInfoSel]  = { col_gray4, col_cyan , col_black  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    // [SchemeInfoNorm] = { col_gray3, col_gray1,  col_black  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+    [SchemeStatus]   = { col_gray3     , col_gray1     , col_black },
+    [SchemeTagsSel]  = { col_yellow    , col_gray1     , col_black },
+    [SchemeTagsNorm] = { col_gray3     , col_gray1     , col_black },
+    [SchemeInfoSel]  = { col_orange    , col_gray1     , col_black },
+    [SchemeInfoNorm] = { col_gray2     , col_gray1     , col_black },
 };
 
 /* tagging */
