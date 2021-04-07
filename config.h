@@ -133,7 +133,7 @@ static Key keys[] = {
     { MODKEY,                       XK_t              , setlayout,      { .v = &layouts[0] } },
 	{ MODKEY|ShiftMask,             XK_t              , setlayout,      { .v = &layouts[1] } },
     { MODKEY,                       XK_f              , togglefloating, { 0                } },
-    // { MODKEY|ShiftMask,             XK_s              , togglesticky,   { 0                } },
+    { MODKEY|ShiftMask,             XK_s              , togglesticky,   { 0                } },
 
     { MODKEY          ,             XK_b              , spawn,          { .v = browsercmd  } },
     { MODKEY          ,             XK_u              , spawn,          { .v = bwcmd       } },
