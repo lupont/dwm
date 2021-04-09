@@ -144,7 +144,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_p              , spawn,          { .v = powmencmd   } },
     { MODKEY          ,             XK_p              , spawn,          { .v = pscmd       } },
     { MODKEY          ,             XK_s              , spawn,          { .v = scrotcmd    } },
-    { MODKEY          ,             XK_x              , spawn,          { .v = assistcmd   } },
+    { MODKEY|ShiftMask,             XK_space          , spawn,          { .v = assistcmd   } },
     { MODKEY          ,             XK_Escape         , spawn,          { .v = lockcmd     } },
 
     { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer -q sset Master 2%-; sigdwmblocks 9")   },

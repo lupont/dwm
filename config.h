@@ -30,14 +30,14 @@ enum { SchemeNorm, SchemeCol1, SchemeCol2, SchemeCol3, SchemeCol4,
        SchemeCol5, SchemeCol6, SchemeSel, SchemeStatus, SchemeTagsSel, SchemeTagsNorm, SchemeInfoSel, SchemeInfoNorm }; /* color schemes */
 
 static const char *colors[][3]      = {
-	/*                   fg            bg            border    */
-	[SchemeNorm]     = { col_gray3   , col_gray1   , col_gray2 }, // \x0b
-	[SchemeCol1]     = { col1        , col_gray1   , col_gray2 }, // \x0c
-	[SchemeCol2]     = { col2        , col_gray1   , col_gray2 }, // \x0d
-	[SchemeCol3]     = { col3        , col_gray1   , col_gray2 }, // \x0e
-	[SchemeCol4]     = { col4        , col_gray1   , col_gray2 }, // \x0f
-	[SchemeCol5]     = { col5        , col_gray1   , col_gray2 }, // \x10
-	[SchemeCol6]     = { col6        , col_gray1   , col_gray2 }, // \x11
+    /*                   fg            bg            border    */
+    [SchemeNorm]     = { col_gray3   , col_gray1   , col_gray2 }, // \x0b
+    [SchemeCol1]     = { col1        , col_gray1   , col_gray2 }, // \x0c
+    [SchemeCol2]     = { col2        , col_gray1   , col_gray2 }, // \x0d
+    [SchemeCol3]     = { col3        , col_gray1   , col_gray2 }, // \x0e
+    [SchemeCol4]     = { col4        , col_gray1   , col_gray2 }, // \x0f
+    [SchemeCol5]     = { col5        , col_gray1   , col_gray2 }, // \x10
+    [SchemeCol6]     = { col6        , col_gray1   , col_gray2 }, // \x11
     [SchemeSel]      = { col_gray1   , col_yellow  , col_gray2 },
     [SchemeStatus]   = { col_gray3   , col_gray1   , col_black },
     [SchemeTagsSel]  = { col_yellow  , col_gray1   , col_black },
@@ -46,16 +46,16 @@ static const char *colors[][3]      = {
     [SchemeInfoNorm] = { col_gray2   , col_gray1   , col_black },
 };
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
-static const XPoint stickyiconbb    = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
+static const XPoint stickyiconbb    = {4,8};    /* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
 
 /* tagging */
 static const char *tags[] = { "web", "a", "b", "c", "comm" };
 
 static const Rule rules[] = {
-	/* class        instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",       NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Alacritty",  NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,         NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+    /* class        instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+    { "Gimp",       NULL,     NULL,           0,         0,          0,           0,        -1 },
+    { "Alacritty",  NULL,     NULL,           0,         0,          1,           0,        -1 },
+    { NULL,         NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -64,18 +64,18 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "[M]",      monocle },
+    /* symbol     arrange function */
+    { "[]=",      tile },    /* first entry is default */
+    { "[M]",      monocle },
 };
 
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+    { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+    { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+    { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+    { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -98,7 +98,7 @@ static const char *assistcmd[]  = { "dmenu_tuxi"     , NULL     };
 #include "movestack.c"
 #include <X11/XF86keysym.h>
 static Key keys[] = {
-	/* modifier                     key        function        argument */
+    /* modifier                     key        function        argument */
     { MODKEY,                       XK_space          , spawn,          { .v = dmenucmd    } },
 
     { MODKEY,                       XK_Return         , spawn,          { .v = termcmd     } },
@@ -111,9 +111,9 @@ static Key keys[] = {
 
     { MODKEY,                       XK_h              , setmfact,       { .f = -0.05       } },
     { MODKEY,                       XK_l              , setmfact,       { .f = +0.05       } },
-	{ MODKEY|ShiftMask,             XK_h              , setcfact,       { .f = +0.25       } },
-	{ MODKEY|ShiftMask,             XK_l              , setcfact,       { .f = -0.25       } },
-	{ MODKEY|ShiftMask,             XK_o              , setcfact,       { .f =  0.00       } },
+    { MODKEY|ShiftMask,             XK_h              , setcfact,       { .f = +0.25       } },
+    { MODKEY|ShiftMask,             XK_l              , setcfact,       { .f = -0.25       } },
+    { MODKEY|ShiftMask,             XK_o              , setcfact,       { .f =  0.00       } },
     
     { MODKEY,                       XK_j              , focusstack,     { .i = +1          } },
     { MODKEY,                       XK_k              , focusstack,     { .i = -1          } },
@@ -133,7 +133,7 @@ static Key keys[] = {
     { MODKEY,                       XK_Tab            , view,           { 0                } },
     { MODKEY,                       XK_m              , setlayout,      { 0                } },
     { MODKEY,                       XK_t              , setlayout,      { .v = &layouts[0] } },
-	{ MODKEY|ShiftMask,             XK_t              , setlayout,      { .v = &layouts[1] } },
+    { MODKEY|ShiftMask,             XK_t              , setlayout,      { .v = &layouts[1] } },
     { MODKEY,                       XK_f              , togglefloating, { 0                } },
     { MODKEY|ShiftMask,             XK_s              , togglesticky,   { 0                } },
 
@@ -144,12 +144,12 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_p              , spawn,          { .v = powmencmd   } },
     { MODKEY          ,             XK_p              , spawn,          { .v = pscmd       } },
     { MODKEY          ,             XK_s              , spawn,          { .v = scrotcmd    } },
-    { MODKEY          ,             XK_x              , spawn,          { .v = assistcmd   } },
+    { MODKEY|ShiftMask,             XK_space          , spawn,          { .v = assistcmd   } },
     { MODKEY          ,             XK_Escape         , spawn,          { .v = lockcmd     } },
 
     { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer -q sset Master 2%-; sigdwmblocks 9")   },
-	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer -q sset Master 2%+; sigdwmblocks 9")   },
-	{ 0, XF86XK_AudioMute       , spawn, SHCMD("amixer set Master toggle; sigdwmblocks 9") },
+    { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer -q sset Master 2%+; sigdwmblocks 9")   },
+    { 0, XF86XK_AudioMute       , spawn, SHCMD("amixer set Master toggle; sigdwmblocks 9") },
 
     { 0, XF86XK_MonBrightnessUp  , spawn, SHCMD("brightnessctl s +100") },
     { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s 100-") },
@@ -167,19 +167,19 @@ static Key keys[] = {
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
-	/* click                event mask      button          function        argument */
-	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
-	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
-	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
-	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-	{ ClkTagBar,            0,              Button1,        view,           {0} },
-	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+    /* click                event mask      button          function        argument */
+    { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+    { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+    { ClkWinTitle,          0,              Button2,        zoom,           {0} },
+    { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
+    { ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
+    { ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
+    { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+    { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+    { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+    { ClkTagBar,            0,              Button1,        view,           {0} },
+    { ClkTagBar,            0,              Button3,        toggleview,     {0} },
+    { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
+    { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
