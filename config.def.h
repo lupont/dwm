@@ -95,6 +95,10 @@ static const char *pscmd[]      = { "dmenu_ps"       , NULL     };
 static const char *scrotcmd[]   = { "dmenu_scrot"    , NULL     };
 static const char *assistcmd[]  = { "dmenu_tuxi"     , NULL     };
 
+static const char *audioup[]      = { "update_audio", "2%+"    };
+static const char *audiodown[]    = { "update_audio", "2%-"    };
+static const char *audiotoggle[]  = { "update_audio", "toggle" };
+
 #include "movestack.c"
 #include <X11/XF86keysym.h>
 static Key keys[] = {
@@ -147,9 +151,9 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_space          , spawn,          { .v = assistcmd   } },
     { MODKEY          ,             XK_Escape         , spawn,          { .v = lockcmd     } },
 
-    { 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer -q sset Master 2%-; sigdwmblocks 9")   },
-    { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer -q sset Master 2%+; sigdwmblocks 9")   },
-    { 0, XF86XK_AudioMute       , spawn, SHCMD("amixer set Master toggle; sigdwmblocks 9") },
+    { 0, XF86XK_AudioLowerVolume, spawn, { .v = audiodown }   },
+    { 0, XF86XK_AudioRaiseVolume, spawn, { .v = audioup }   },
+    { 0, XF86XK_AudioMute       , spawn, { .v = audiotoggle } },
 
     { 0, XF86XK_MonBrightnessUp  , spawn, SHCMD("brightnessctl s +100") },
     { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s 100-") },
