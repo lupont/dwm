@@ -15,6 +15,7 @@ static const char col_black []    = "#000000";
 static const char col_gray1 []    = "#111111";
 static const char col_gray2 []    = "#444444";
 static const char col_gray3 []    = "#bbbbbb";
+static const char col_gray4 []    = "#777777";
 static const char col_orange[]    = "#e67505";
 static const char col_yellow[]    = "#ffdd00";
 
@@ -38,7 +39,7 @@ static const char *colors[][3]      = {
     [SchemeCol4]     = { col4        , col_gray1   , col_gray2 }, // \x0f
     [SchemeCol5]     = { col5        , col_gray1   , col_gray2 }, // \x10
     [SchemeCol6]     = { col6        , col_gray1   , col_gray2 }, // \x11
-    [SchemeSel]      = { col_gray1   , col_yellow  , col_gray3 },
+    [SchemeSel]      = { col_gray1   , col_yellow  , col_gray4 },
     [SchemeStatus]   = { col_gray3   , col_gray1   , col_black },
     [SchemeTagsSel]  = { col_yellow  , col_gray1   , col_black },
     [SchemeTagsNorm] = { col_gray3   , col_gray1   , col_black },
