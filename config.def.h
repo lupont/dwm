@@ -18,13 +18,13 @@ static const char col_gray3 []    = "#bbbbbb";
 static const char col_orange[]    = "#e67505";
 static const char col_yellow[]    = "#ffdd00";
 
-/* \x0b to \x1f in scripts to use colors */
-static const char col1[]            = "#e67505";
-static const char col2[]            = "#ffdd00";
-static const char col3[]            = "#f67606";
-static const char col4[]            = "#ffcc33";
-static const char col5[]            = "#005577";
-static const char col6[]            = "#0088ff";
+/* \x0c to \x1f in scripts to use colors */
+static const char col1[]            = "#009900"; // \x0c
+static const char col2[]            = "#e67505"; // \x0d
+static const char col3[]            = "#990000"; // \x0e
+static const char col4[]            = "#ffdd00"; // \x0f
+static const char col5[]            = "#005577"; // \x10
+static const char col6[]            = "#0088ff"; // \x11
 
 enum { SchemeNorm, SchemeCol1, SchemeCol2, SchemeCol3, SchemeCol4,
        SchemeCol5, SchemeCol6, SchemeSel, SchemeStatus, SchemeTagsSel, SchemeTagsNorm, SchemeInfoSel, SchemeInfoNorm }; /* color schemes */

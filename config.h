@@ -18,11 +18,11 @@ static const char col_gray3 []    = "#bbbbbb";
 static const char col_orange[]    = "#e67505";
 static const char col_yellow[]    = "#ffdd00";
 
-/* \x0b to \x1f in scripts to use colors */
-static const char col1[]            = "#e67505";
-static const char col2[]            = "#ffdd00";
-static const char col3[]            = "#f67606";
-static const char col4[]            = "#ffcc33";
+/* \x0c to \x1f in scripts to use colors */
+static const char col1[]            = "#009900";
+static const char col2[]            = "#e67505";
+static const char col3[]            = "#990000";
+static const char col4[]            = "#ffdd00";
 static const char col5[]            = "#005577";
 static const char col6[]            = "#0088ff";
 
