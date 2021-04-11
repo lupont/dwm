@@ -19,12 +19,12 @@ static const char col_orange[]    = "#e67505";
 static const char col_yellow[]    = "#ffdd00";
 
 /* \x0c to \x1f in scripts to use colors */
-static const char col1[]            = "#009900";
-static const char col2[]            = "#e67505";
-static const char col3[]            = "#990000";
-static const char col4[]            = "#ffdd00";
-static const char col5[]            = "#005577";
-static const char col6[]            = "#0088ff";
+static const char col1[]            = "#009900"; // \x0c
+static const char col2[]            = "#e67505"; // \x0d
+static const char col3[]            = "#990000"; // \x0e
+static const char col4[]            = "#ffdd00"; // \x0f
+static const char col5[]            = "#005577"; // \x10
+static const char col6[]            = "#0088ff"; // \x11
 
 enum { SchemeNorm, SchemeCol1, SchemeCol2, SchemeCol3, SchemeCol4,
        SchemeCol5, SchemeCol6, SchemeSel, SchemeStatus, SchemeTagsSel, SchemeTagsNorm, SchemeInfoSel, SchemeInfoNorm }; /* color schemes */
@@ -38,7 +38,7 @@ static const char *colors[][3]      = {
     [SchemeCol4]     = { col4        , col_gray1   , col_gray2 }, // \x0f
     [SchemeCol5]     = { col5        , col_gray1   , col_gray2 }, // \x10
     [SchemeCol6]     = { col6        , col_gray1   , col_gray2 }, // \x11
-    [SchemeSel]      = { col_gray1   , col_yellow  , col_gray2 },
+    [SchemeSel]      = { col_gray1   , col_yellow  , col_gray3 },
     [SchemeStatus]   = { col_gray3   , col_gray1   , col_black },
     [SchemeTagsSel]  = { col_yellow  , col_gray1   , col_black },
     [SchemeTagsNorm] = { col_gray3   , col_gray1   , col_black },
