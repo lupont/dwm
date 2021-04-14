@@ -53,10 +53,11 @@ static const XPoint stickyiconbb    = {4,8};    /* defines the bottom right corn
 static const char *tags[] = { "web", "a", "b", "c", "comm" };
 
 static const Rule rules[] = {
-    /* class        instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-    { "Gimp",       NULL,     NULL,           0,         0,          0,           0,        -1 },
-    { "Alacritty",  NULL,     NULL,           0,         0,          1,           0,        -1 },
-    { NULL,         NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+    /* class                instance     title                 tags mask  isfloating  isterminal  noswallow  monitor */
+    { "Alacritty",          NULL,        NULL,                 0,         0,          1,           0,        -1 },
+    { "Gimp",               NULL,        NULL,                 0,         0,          0,           0,        -1 },
+    { NULL,                 NULL,        "Emulator",           0,         1,          0,           1,        -1 },
+    { NULL,                 NULL,        "Event Tester",       0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
