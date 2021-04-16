@@ -89,6 +89,7 @@ static const char *termcmd[]    = { "alacritty"      , NULL     };
 
 static const char *browsercmd[] = { "firefox"        , NULL     };
 static const char *bwcmd[]      = { "dmenu_rbw"      , NULL     };
+static const char *bwlockcmd[]  = { "rbw"            , "lock"   };
 static const char *clipcmd[]    = { "clipmenu"       , NULL     };
 static const char *emojicmd[]   = { "dmenu_emoji"    , NULL     };
 static const char *lockcmd[]    = { "slock"          , NULL     };
@@ -145,6 +146,7 @@ static Key keys[] = {
 
     { MODKEY          ,             XK_b              , spawn,          { .v = browsercmd  } },
     { MODKEY          ,             XK_u              , spawn,          { .v = bwcmd       } },
+    { MODKEY|ShiftMask,             XK_u              , spawn,          { .v = bwlockcmd   } },
     { MODKEY          ,             XK_c              , spawn,          { .v = clipcmd     } },
     { MODKEY          ,             XK_e              , spawn,          { .v = emojicmd    } },
     { MODKEY|ShiftMask,             XK_p              , spawn,          { .v = powmencmd   } },
