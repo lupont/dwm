@@ -89,7 +89,7 @@ static const char *termcmd[]    = { "alacritty"      , NULL     };
 
 static const char *browsercmd[] = { "firefox"        , NULL     };
 static const char *bwcmd[]      = { "dmenu_rbw"      , NULL     };
-static const char *bwlockcmd[]  = { "rbw"            , "lock"   };
+static const char *bwlockcmd[]  = { "rbw", "lock"    , NULL     };
 static const char *clipcmd[]    = { "clipmenu"       , NULL     };
 static const char *emojicmd[]   = { "dmenu_emoji"    , NULL     };
 static const char *lockcmd[]    = { "slock"          , NULL     };
