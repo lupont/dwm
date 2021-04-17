@@ -88,7 +88,6 @@ static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon };
 static const char *termcmd[]    = { "alacritty"      , NULL     };
 
 static const char *browsercmd[] = { "firefox"        , NULL     };
-static const char *bwcmd[]      = { "dmenu_rbw"      , NULL     };
 static const char *bwlockcmd[]  = { "rbw", "lock"    , NULL     };
 static const char *clipcmd[]    = { "clipmenu"       , NULL     };
 static const char *emojicmd[]   = { "dmenu_emoji"    , NULL     };
@@ -145,7 +144,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_s              , togglesticky,   { 0                } },
 
     { MODKEY          ,             XK_b              , spawn,          { .v = browsercmd  } },
-    { MODKEY          ,             XK_u              , spawn,          { .v = bwcmd       } },
+    { MODKEY          ,             XK_u              , spawn, SHCMD("sleep 0.2s; dmenu_rbw") }, // SHCMD to make the popup work
     { MODKEY|ShiftMask,             XK_u              , spawn,          { .v = bwlockcmd   } },
     { MODKEY          ,             XK_c              , spawn,          { .v = clipcmd     } },
     { MODKEY          ,             XK_e              , spawn,          { .v = emojicmd    } },
