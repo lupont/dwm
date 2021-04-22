@@ -55,6 +55,7 @@ static const char *tags[] = { "web", "a", "b", "c", "comm" };
 static const Rule rules[] = {
     /* class                instance     title                 tags mask  isfloating  isterminal  noswallow  monitor */
     { "Alacritty",          NULL,        NULL,                 0,         0,          1,           0,        -1 },
+    { "Alacritty",          NULL,        "scratchpad",         0,         1,          1,           0,        -1 },
     { "Gimp",               NULL,        NULL,                 0,         0,          0,           0,        -1 },
     { NULL,                 NULL,        "Emulator",           0,         1,          0,           1,        -1 },
     { NULL,                 NULL,        "Event Tester",       0,         0,          0,           1,        -1 }, /* xev */
@@ -86,6 +87,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon };
 static const char *termcmd[]    = { "alacritty"      , NULL     };
+static const char *padcmd[]     = { "alacritty"      , "-t", "scratchpad", NULL     };
 
 static const char *browsercmd[] = { "firefox"        , NULL     };
 static const char *bwlockcmd[]  = { "rbw", "lock"    , NULL     };
@@ -108,6 +110,7 @@ static Key keys[] = {
     { MODKEY,                       XK_space          , spawn,          { .v = dmenucmd           } },
 
     { MODKEY,                       XK_Return         , spawn,          { .v = termcmd            } },
+    { MODKEY|ControlMask,           XK_Return         , spawn,          { .v = padcmd             } },
     { MODKEY|ShiftMask,             XK_Return         , zoom,           { 0                       } },
 
     { MODKEY,                       XK_q              , killclient,     { 0                       } },
