@@ -851,7 +851,7 @@ drawbar(Monitor *m)
     Client *c;
 
     /* draw status first so it can be overdrawn by tags later */
-    if (m == selmon) { /* status is only drawn on selected monitor */
+    if (m == selmon || 1) { /* status is only drawn on selected monitor */
         char *stc = stextc;
         char *stp = stextc;
         char tmp;
@@ -860,7 +860,7 @@ drawbar(Monitor *m)
         drw_setscheme(drw, scheme[SchemeStatus]);
 
         x = m->ww - wstext;
-        drw_rect(drw, x, 0, LSPAD, bh, 1, 1); x += LSPAD; /* to keep left padding clean */
+        // drw_rect(drw, x, 0, LSPAD, bh, 1, 1); x += LSPAD; /* to keep left padding clean */
         for (;;) {
                 if ((unsigned char)*stc >= ' ') {
                         stc++;
@@ -879,7 +879,7 @@ drawbar(Monitor *m)
                 stp = ++stc;
         }
         drw_setscheme(drw, scheme[SchemeNorm]);
-        drw_rect(drw, x, 0, m->ww - x, bh, 1, 1); /* to keep right padding clean */
+        // drw_rect(drw, x, 0, m->ww - x, bh, 1, 1); /* to keep right padding clean */
     }
 
     for (c = m->clients; c; c = c->next) {
@@ -2269,7 +2269,7 @@ updatedwmblockssig(int x)
                                 break;
                         if (!selmon->statushandcursor) {
                                 selmon->statushandcursor = 1;
-                                XDefineCursor(dpy, selmon->barwin, cursor[CurHand]->cursor);
+                                // XDefineCursor(dpy, selmon->barwin, cursor[CurHand]->cursor);
                         }
                         dwmblockssig = tmp;
                         return;
@@ -2278,7 +2278,7 @@ updatedwmblockssig(int x)
         }
         if (selmon->statushandcursor) {
                 selmon->statushandcursor = 0;
-                XDefineCursor(dpy, selmon->barwin, cursor[CurNormal]->cursor);
+                // XDefineCursor(dpy, selmon->barwin, cursor[CurNormal]->cursor);
         }
         dwmblockssig = 0;
 }
@@ -2426,24 +2426,25 @@ updatestatus(void)
     char rawstext[STATUSLENGTH];
 
     if (gettextprop(root, XA_WM_NAME, rawstext, sizeof rawstext)) {
-                char stextp[STATUSLENGTH];
-                char *stp = stextp, *stc = stextc, *sts = stexts;
+        char stextp[STATUSLENGTH];
+        char *stp = stextp, *stc = stextc, *sts = stexts;
 
-                for (char *rst = rawstext; *rst != '\0'; rst++)
-                        if ((unsigned char)*rst >= ' ')
-                                *(stp++) = *(stc++) = *(sts++) = *rst;
-                        else if ((unsigned char)*rst > DELIMITERENDCHAR)
-                                *(stc++) = *rst;
-                        else
-                                *(sts++) = *rst;
-                *stp = *stc = *sts = '\0';
-                wstext = TTEXTW(stextp) + LSPAD + RSPAD;
-        } else {
-                strcpy(stextc, "dwm-"VERSION);
-                strcpy(stexts, stextc);
-                wstext = TTEXTW(stextc) + LSPAD + RSPAD;
-        }
-        drawbar(selmon);
+        for (char *rst = rawstext; *rst != '\0'; rst++)
+            if ((unsigned char)*rst >= ' ')
+                *(stp++) = *(stc++) = *(sts++) = *rst;
+            else if ((unsigned char)*rst > DELIMITERENDCHAR)
+                *(stc++) = *rst;
+            else
+                *(sts++) = *rst;
+        *stp = *stc = *sts = '\0';
+        wstext = TTEXTW(stextp) + LSPAD + RSPAD;
+    } else {
+        strcpy(stextc, "dwm-"VERSION);
+        strcpy(stexts, stextc);
+        wstext = TTEXTW(stextc) + LSPAD + RSPAD;
+    }
+    // drawbar(selmon);
+    drawbars();
 }
 
 void
