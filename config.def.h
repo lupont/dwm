@@ -159,8 +159,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_space          , spawn,          { .v = assistcmd          } },
     { MODKEY          ,             XK_Escape         , spawn,          { .v = lockcmd            } },
 
-    { 0, XF86XK_AudioLowerVolume, spawn, { .v = audiodown }   },
-    { 0, XF86XK_AudioRaiseVolume, spawn, { .v = audioup }   },
+    { 0, XF86XK_AudioLowerVolume, spawn, { .v = audiodown   } },
+    { 0, XF86XK_AudioRaiseVolume, spawn, { .v = audioup     } },
     { 0, XF86XK_AudioMute       , spawn, { .v = audiotoggle } },
 
     { 0, XF86XK_MonBrightnessUp  , spawn, SHCMD("brightnessctl s +100") },
@@ -180,17 +180,17 @@ static Key keys[] = {
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
     /* click                event mask      button          function        argument */
-    { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-    { ClkWinTitle,          0,              Button2,        zoom,           {0} },
-    { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
-    { ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
-    { ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
-    { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-    { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-    { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-    { ClkTagBar,            0,              Button1,        view,           {0} },
-    { ClkTagBar,            0,              Button3,        toggleview,     {0} },
-    { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-    { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+    { ClkLtSymbol,          0,              Button1,        setlayout,      { 0      } },
+    { ClkWinTitle,          0,              Button2,        zoom,           { 0      } },
+    { ClkStatusText,        0,              Button1,        sigdwmblocks,   { .i = 1 } },
+    { ClkStatusText,        0,              Button2,        sigdwmblocks,   { .i = 2 } },
+    { ClkStatusText,        0,              Button3,        sigdwmblocks,   { .i = 3 } },
+    { ClkClientWin,         MODKEY,         Button1,        movemouse,      { 0      } },
+    { ClkClientWin,         MODKEY,         Button2,        togglefloating, { 0      } },
+    { ClkClientWin,         MODKEY,         Button3,        resizemouse,    { 0      } },
+    { ClkTagBar,            0,              Button1,        view,           { 0      } },
+    { ClkTagBar,            0,              Button3,        toggleview,     { 0      } },
+    { ClkTagBar,            MODKEY,         Button1,        tag,            { 0      } },
+    { ClkTagBar,            MODKEY,         Button3,        toggletag,      { 0      } },
 };
 
