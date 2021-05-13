@@ -100,6 +100,8 @@ static const char *pscmd[]      = { "dmenu_ps"       , NULL     };
 static const char *scrotcmd[]   = { "dmenu_scrot"    , NULL     };
 static const char *assistcmd[]  = { "dmenu_tuxi"     , NULL     };
 
+static const char *layoutmenucmd = "dwm-layoutmenu";
+
 static const char *audioup[]      = { "update_audio", "2%+"    };
 static const char *audiodown[]    = { "update_audio", "2%-"    };
 static const char *audiotoggle[]  = { "update_audio", "toggle" };
@@ -181,6 +183,7 @@ static Key keys[] = {
 static Button buttons[] = {
     /* click                event mask      button          function        argument */
     { ClkLtSymbol,          0,              Button1,        setlayout,      { 0      } },
+    { ClkLtSymbol,          0,              Button3,        layoutmenu,     { 0      } },
     { ClkWinTitle,          0,              Button2,        killclient,     { 0      } },
     { ClkStatusText,        0,              Button1,        sigdwmblocks,   { .i = 1 } },
     { ClkStatusText,        0,              Button2,        sigdwmblocks,   { .i = 2 } },
