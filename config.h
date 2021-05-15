@@ -104,6 +104,9 @@ static const char *audioup[]      = { "update_audio", "2%+"    };
 static const char *audiodown[]    = { "update_audio", "2%-"    };
 static const char *audiotoggle[]  = { "update_audio", "toggle" };
 
+static const char *brightnessup[]   = { "update_brightness", "+100" }; 
+static const char *brightnessdown[] = { "update_brightness", "100-" }; 
+
 #include "movestack.c"
 #include <X11/XF86keysym.h>
 static Key keys[] = {
@@ -163,8 +166,8 @@ static Key keys[] = {
     { 0, XF86XK_AudioRaiseVolume, spawn, { .v = audioup     } },
     { 0, XF86XK_AudioMute       , spawn, { .v = audiotoggle } },
 
-    { 0, XF86XK_MonBrightnessUp  , spawn, SHCMD("brightnessctl s +100") },
-    { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s 100-") },
+    { 0, XF86XK_MonBrightnessUp  , spawn, { .v = brightnessup   } },
+    { 0, XF86XK_MonBrightnessDown, spawn, { .v = brightnessdown } },
 
     { MODKEY,                       XK_parenright     , view,           { .ui = ~0         } },
     { MODKEY|ShiftMask,             XK_parenright     , tag,            { .ui = ~0         } },
