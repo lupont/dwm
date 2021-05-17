@@ -18,6 +18,7 @@ static const char col_gray3 []    = "#bbbbbb";
 static const char col_gray4 []    = "#777777";
 static const char col_orange[]    = "#e67505";
 static const char col_yellow[]    = "#ffdd00";
+static const char col_white []    = "#ffffff";
 
 /* \x0c to \x1f in scripts to use colors */
 static const char col1[]            = "#009900"; // \x0c
@@ -43,7 +44,7 @@ static const char *colors[][3]      = {
     [SchemeStatus]   = { col_gray3   , col_gray1   , col_black },
     [SchemeTagsSel]  = { col_yellow  , col_gray1   , col_black },
     [SchemeTagsNorm] = { col_gray3   , col_gray1   , col_black },
-    [SchemeInfoSel]  = { col_orange  , col_gray1   , col_black },
+    [SchemeInfoSel]  = { col_white   , col_gray1   , col_black },
     [SchemeInfoNorm] = { col_gray2   , col_gray1   , col_black },
 };
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
