@@ -18,7 +18,7 @@ static const char col_gray3 []    = "#bbbbbb";
 static const char col_gray4 []    = "#777777";
 static const char col_orange[]    = "#e67505";
 static const char col_yellow[]    = "#ffdd00";
-static const char col_white []    = "#ffffff";
+static const char col_white []    = "#eeeeee";
 
 /* \x0c to \x1f in scripts to use colors */
 static const char col1[]            = "#009900"; // \x0c
