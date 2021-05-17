@@ -105,6 +105,7 @@ static const char *layoutmenucmd = "dwm-layoutmenu";
 static const char *audioup[]      = { "update_audio", "2%+"    };
 static const char *audiodown[]    = { "update_audio", "2%-"    };
 static const char *audiotoggle[]  = { "update_audio", "toggle" };
+static const char *mictoggle[]    = { "toggle_mic" };
 
 static const char *brightnessup[]   = { "update_brightness", "+100" }; 
 static const char *brightnessdown[] = { "update_brightness", "100-" }; 
@@ -167,6 +168,7 @@ static Key keys[] = {
     { 0, XF86XK_AudioLowerVolume, spawn, { .v = audiodown   } },
     { 0, XF86XK_AudioRaiseVolume, spawn, { .v = audioup     } },
     { 0, XF86XK_AudioMute       , spawn, { .v = audiotoggle } },
+    { 0, XF86XK_AudioMicMute    , spawn, { .v = mictoggle   } },
 
     { 0, XF86XK_MonBrightnessUp  , spawn, { .v = brightnessup   } },
     { 0, XF86XK_MonBrightnessDown, spawn, { .v = brightnessdown } },
