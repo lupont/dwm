@@ -51,7 +51,8 @@ static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0}
 static const XPoint stickyiconbb    = {4,8};    /* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
 
 /* tagging */
-static const char *tags[] = { "web", "a", "b", "c", "comm" };
+// static const char *tags[] = { "web", "a", "b", "c", "comm" };
+static const char *tags[] = { "", "", "", "", "", "a", "b", "c" };
 
 static const Rule rules[] = {
     /* class                instance     title                 tags mask  iscentered isfloating  isterminal  noswallow  monitor */
@@ -182,6 +183,9 @@ static Key keys[] = {
     TAGKEYS ( XK_numbersign  , 2 )
     TAGKEYS ( XK_dollar      , 3 )
     TAGKEYS ( XK_percent     , 4 )
+    TAGKEYS ( XK_asciicircum , 5 )
+    TAGKEYS ( XK_ampersand   , 6 )
+    TAGKEYS ( XK_asterisk    , 7 )
 };
 
 /* button definitions */
