@@ -166,6 +166,7 @@ static Key keys[] = {
     { MODKEY          ,             XK_s              , spawn,          { .v = scrotcmd           } },
     { MODKEY|ShiftMask,             XK_space          , spawn,          { .v = assistcmd          } },
     { MODKEY          ,             XK_Escape         , spawn,          { .v = lockcmd            } },
+    { MODKEY|ShiftMask,             XK_Escape         , spawn,     SHCMD( "systemctl suspend; slock"     ) },
 
     { 0, XF86XK_AudioLowerVolume, spawn, { .v = audiodown   } },
     { 0, XF86XK_AudioRaiseVolume, spawn, { .v = audioup     } },
