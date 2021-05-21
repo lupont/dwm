@@ -895,7 +895,7 @@ drawbar(Monitor *m)
                 stp = ++stc;
         }
         drw_setscheme(drw, scheme[SchemeNorm]);
-        // drw_rect(drw, x, 0, m->ww - x, bh, 1, 1); /* to keep right padding clean */
+        drw_rect(drw, x, 0, m->ww - x, bh, 1, 1); /* to keep right padding clean */
     }
 
     for (c = m->clients; c; c = c->next) {
@@ -921,7 +921,7 @@ drawbar(Monitor *m)
 
     x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
 
-    if (m == selmon) {
+    if (m == selmon || 1) {
         blw = w, ble = x;
         w = m->ww - wstext - x;
     } else {
