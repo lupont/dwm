@@ -115,7 +115,7 @@ static const char *brightnessdown[] = { "update_brightness", "100-" };
 #include "movestack.c"
 #include <X11/XF86keysym.h>
 static Key keys[] = {
-    /* modifier                     key        function        argument */
+   /* modifier                      key                 function          argument */
     { MODKEY,                       XK_space          , spawn,          { .v = dmenucmd           } },
 
     { MODKEY,                       XK_Return         , spawn,          { .v = termcmd            } },
@@ -166,7 +166,7 @@ static Key keys[] = {
     { MODKEY          ,             XK_s              , spawn,          { .v = scrotcmd           } },
     { MODKEY|ShiftMask,             XK_space          , spawn,          { .v = assistcmd          } },
     { MODKEY          ,             XK_Escape         , spawn,          { .v = lockcmd            } },
-    { MODKEY|ShiftMask,             XK_Escape         , spawn,     SHCMD( "systemctl suspend; slock"     ) },
+    { MODKEY|ShiftMask,             XK_Escape         , spawn,   SHCMD( "systemctl suspend; slock") },
 
     { 0, XF86XK_AudioLowerVolume, spawn, { .v = audiodown   } },
     { 0, XF86XK_AudioRaiseVolume, spawn, { .v = audioup     } },
@@ -175,6 +175,10 @@ static Key keys[] = {
 
     { 0, XF86XK_MonBrightnessUp  , spawn, { .v = brightnessup   } },
     { 0, XF86XK_MonBrightnessDown, spawn, { .v = brightnessdown } },
+
+    { 0        , XK_Print, spawn, SHCMD("dmenu_scrot attack") },
+    { MODKEY   , XK_Print, spawn,      { .v = scrotcmd      } },
+    { ShiftMask, XK_Print, spawn,      { .v = scrotcmd      } },
 
     { MODKEY,                       XK_parenright     , view,           { .ui = ~0         } },
     { MODKEY|ShiftMask,             XK_parenright     , tag,            { .ui = ~0         } },
