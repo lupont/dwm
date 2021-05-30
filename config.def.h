@@ -101,6 +101,7 @@ static const char *powmencmd[]  = { "dmenu_powermenu", NULL     };
 static const char *pscmd[]      = { "dmenu_ps"       , NULL     };
 static const char *scrotcmd[]   = { "dmenu_scrot"    , NULL     };
 static const char *assistcmd[]  = { "dmenu_tuxi"     , NULL     };
+static const char *mancmd[]     = { "dude"           , NULL     };
 
 static const char *layoutmenucmd = "dwm-layoutmenu";
 
@@ -167,6 +168,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_space          , spawn,          { .v = assistcmd          } },
     { MODKEY          ,             XK_Escape         , spawn,          { .v = lockcmd            } },
     { MODKEY|ShiftMask,             XK_Escape         , spawn,   SHCMD( "systemctl suspend; slock") },
+    { 0               ,             XF86XK_Tools      , spawn,          { .v = mancmd             } },
 
     { 0, XF86XK_AudioLowerVolume, spawn, { .v = audiodown   } },
     { 0, XF86XK_AudioRaiseVolume, spawn, { .v = audioup     } },
