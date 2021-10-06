@@ -88,9 +88,9 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]   = { "dmenu_run", "-i", "-m", dmenumon, NULL };
-static const char *termcmd[]    = { "alacritty",                       NULL };
-static const char *padcmd[]     = { "alacritty", "-t", "scratchpad",   NULL };
+static const char *dmenucmd[]   = { "dmenu_run", "-i", "-m", dmenumon,                        NULL };
+static const char *termcmd[]    = { "alacritty",                                              NULL };
+static const char *padcmd[]     = { "alacritty", "-t", "scratchpad", "-e", "python3", "-q",   NULL };
 
 static const char *browsercmd[] = { "firefox"        , NULL     };
 static const char *bwlockcmd[]  = { "rbw", "lock"    , NULL     };
