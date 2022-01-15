@@ -52,7 +52,7 @@ static const XPoint stickyiconbb    = {4,8};    /* defines the bottom right corn
 
 /* tagging */
 // static const char *tags[] = { "web", "a", "b", "c", "comm" };
-static const char *tags[] = { "", "", "", "", "", "a", "b", "c" };
+static const char *tags[] = { "a", "b", "c", "d", "e", "f", "g" };
 
 static const Rule rules[] = {
     /* class                instance     title                 tags mask  iscentered isfloating  isterminal  noswallow  monitor */
@@ -88,8 +88,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]   = { "dmenu_run", "-i", "-m", dmenumon,                        NULL };
-static const char *termcmd[]    = { "alacritty",                                              NULL };
+static const char *dmenucmd[]   = { "dmenu_run", "-i", "-m", dmenumon, NULL };
+static const char *termcmd[]    = { "alacritty",                       NULL };
 static const char *padcmd[]     = { "alacritty", "-t", "scratchpad", "-e", "python3", "-q",   NULL };
 
 static const char *browsercmd[] = { "firefox"        , NULL     };
@@ -102,6 +102,11 @@ static const char *pscmd[]      = { "dmenu_ps"       , NULL     };
 static const char *scrotcmd[]   = { "dmenu_scrot"    , NULL     };
 static const char *assistcmd[]  = { "dmenu_tuxi"     , NULL     };
 static const char *mancmd[]     = { "dude"           , NULL     };
+static const char *hittacmd[]   = { "dmenu_hitta"    , NULL     };
+static const char *xkbcmd[]     = { "dmenu_xkb"      , NULL     };
+static const char *infocmd[]    = { "dmenu_info"     , NULL     };
+
+static const char *displaycmd[] = { "xrandr-launch"  , "notify", NULL     };
 
 static const char *layoutmenucmd = "dwm-layoutmenu";
 
@@ -143,8 +148,8 @@ static Key keys[] = {
     { MODKEY,                       XK_period         , focusmon,       { .i = +1                 } },
     { MODKEY|ShiftMask,             XK_comma          , tagmon,         { .i = -1                 } },
     { MODKEY|ShiftMask,             XK_period         , tagmon,         { .i = +1                 } },
-    { MODKEY|ShiftMask|ControlMask, XK_comma          , tagswapmon,     { .i = +1                 } },
-    { MODKEY|ShiftMask|ControlMask, XK_period         , tagswapmon,     { .i = -1                 } },
+    { MODKEY|ShiftMask|ControlMask, XK_comma          , tagswapmon,     { .i = -1                 } },
+    { MODKEY|ShiftMask|ControlMask, XK_period         , tagswapmon,     { .i = +1                 } },
 
     { MODKEY,                       XK_equal          , incnmaster,     { .i = +1                 } },
     { MODKEY,                       XK_minus          , incnmaster,     { .i = -1                 } },
@@ -158,17 +163,21 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_s              , togglesticky,   { 0                       } },
 
     { MODKEY          ,             XK_b              , spawn,          { .v = browsercmd         } },
-    { MODKEY          ,             XK_u              , spawn,     SHCMD( "sleep 0.2s; dmenu_rbw" ) }, // SHCMD to make the popup work
+    { MODKEY          ,             XK_u              , spawn,     SHCMD( "sleep 0.2s; dmenu_rbw" ) }, // sleep to make the popup work
     { MODKEY|ShiftMask,             XK_u              , spawn,          { .v = bwlockcmd          } },
     { MODKEY          ,             XK_c              , spawn,          { .v = clipcmd            } },
     { MODKEY          ,             XK_e              , spawn,          { .v = emojicmd           } },
     { MODKEY|ShiftMask,             XK_p              , spawn,          { .v = powmencmd          } },
     { MODKEY          ,             XK_p              , spawn,          { .v = pscmd              } },
     { MODKEY          ,             XK_s              , spawn,          { .v = scrotcmd           } },
-    { MODKEY|ShiftMask,             XK_space          , spawn,          { .v = assistcmd          } },
+    { MODKEY          ,             XK_n              , spawn,          { .v = hittacmd           } },
+    { MODKEY|ShiftMask,             XK_space          , spawn,          { .v = xkbcmd             } },
     { MODKEY          ,             XK_Escape         , spawn,          { .v = lockcmd            } },
     { MODKEY|ShiftMask,             XK_Escape         , spawn,   SHCMD( "systemctl suspend; slock") },
+    { MODKEY,                       XK_i              , spawn,          { .v = infocmd            } },
     { 0               ,             XF86XK_Tools      , spawn,          { .v = mancmd             } },
+
+    { MODKEY          ,             XK_o              , spawn,          { .v = displaycmd         } },
 
     { 0, XF86XK_AudioLowerVolume, spawn, { .v = audiodown   } },
     { 0, XF86XK_AudioRaiseVolume, spawn, { .v = audioup     } },
