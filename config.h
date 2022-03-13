@@ -89,11 +89,10 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]   = { "dmenu_run", "-i", "-m", dmenumon, NULL };
-static const char *termcmd[]    = { "alacritty",                       NULL };
-static const char *padcmd[]     = { "alacritty", "-t", "scratchpad", "-e", "python3", "-q",   NULL };
+static const char *termcmd[]    = { "st",                       NULL };
+static const char *padcmd[]     = { "st", "-t", "scratchpad", "-e", "python3", "-q",   NULL };
 
 static const char *browsercmd[] = { "firefox"        , NULL     };
-static const char *bwlockcmd[]  = { "rbw", "lock"    , NULL     };
 static const char *clipcmd[]    = { "clipmenu"       , NULL     };
 static const char *emojicmd[]   = { "dmenu_emoji"    , NULL     };
 static const char *lockcmd[]    = { "slock"          , NULL     };
@@ -163,8 +162,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_s              , togglesticky,   { 0                       } },
 
     { MODKEY          ,             XK_b              , spawn,          { .v = browsercmd         } },
-    { MODKEY          ,             XK_u              , spawn,     SHCMD( "sleep 0.2s; dmenu_rbw" ) }, // sleep to make the popup work
-    { MODKEY|ShiftMask,             XK_u              , spawn,          { .v = bwlockcmd          } },
+    { MODKEY          ,             XK_u              , spawn,     SHCMD( "sleep 0.2s; dmenu_rbw unlock" ) }, // sleep to make the popup work
+    { MODKEY|ShiftMask,             XK_u              , spawn,     SHCMD( "sleep 0.2s; dmenu_rbw lock" ) },
     { MODKEY          ,             XK_c              , spawn,          { .v = clipcmd            } },
     { MODKEY          ,             XK_e              , spawn,          { .v = emojicmd           } },
     { MODKEY|ShiftMask,             XK_p              , spawn,          { .v = powmencmd          } },
